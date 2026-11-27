@@ -52,6 +52,8 @@ resource "aws_security_group" "ai-cp2-08-sg" {
         # 0.0.0.0/0 => 모든 대역폭 => 전 세계 어디서든
         # 222.111.55.44/32 => 오직 1개의 IP만 가능, 내 IP
         cidr_blocks = [ "222.108.125.33/32" ]
+        # 설명. 강의장에서만 접속
+        description = "SSH"
     }
     ingress {
         # 프로토콜
@@ -59,6 +61,9 @@ resource "aws_security_group" "ai-cp2-08-sg" {
         # 포트
         from_port = 80
         to_port = 80
+        cidr_blocks = [ "0.0.0.0/0" ] # 전 세계로 개방
+        # 전 세계에서 웹으로 접속 OK
+        description = "HTTP"
     }
 
     # 아웃바운드 ###########################
