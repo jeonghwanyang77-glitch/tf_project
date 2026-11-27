@@ -41,96 +41,96 @@ terraform validate
 terraform plan
 ----
 # 실제 구성할 인프라에 대한 시뮬레이션 => +, -, +/- 기호 주목
+data.aws_ami.amazon_linux: Reading...
 data.aws_vpc.default: Reading...
 data.aws_vpc.default: Read complete after 1s [id=vpc-0eebee125226fd6c5]
 data.aws_subnets.default: Reading...
 data.aws_subnets.default: Read complete after 0s [id=ap-northeast-2]
-
-No changes. Your infrastructure matches the configuration.
-
-Terraform has compared your real infrastructure against your configuration and found no differences, so no changes are
-needed.
-
-C:\Users\Dell5371\Desktop\workspaces\tf_project\basic>terraform plan
-data.aws_vpc.default: Reading...
-data.aws_vpc.default: Read complete after 1s [id=vpc-0eebee125226fd6c5]
-data.aws_subnets.default: Reading...
-data.aws_subnets.default: Read complete after 0s [id=ap-northeast-2]
-
-Changes to Outputs:
-  + default_subnet_ids = [
-      + "subnet-049c8f72bb109a11e",
-      + "subnet-0cc79271aae2ac523",
-      + "subnet-0928223142a64ef05",
-      + "subnet-011432f9b62dee9b6",
-    ]
-
-You can apply this plan to save these new output values to the Terraform state, without changing any real infrastructure.
-
-─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-
-Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you
-run "terraform apply" now.
-
-C:\Users\Dell5371\Desktop\workspaces\tf_project\basic>terraform plan
-data.aws_vpc.default: Reading...
-data.aws_vpc.default: Read complete after 1s [id=vpc-0eebee125226fd6c5]
-data.aws_subnets.default: Reading...
-data.aws_subnets.default: Read complete after 0s [id=ap-northeast-2]
-
-Changes to Outputs:
-  + default_subnet_ids = [
-      + "subnet-049c8f72bb109a11e",
-      + "subnet-0cc79271aae2ac523",
-      + "subnet-0928223142a64ef05",
-      + "subnet-011432f9b62dee9b6",
-    ]
-  + default_vpc_id     = "vpc-0eebee125226fd6c5"
-
-You can apply this plan to save these new output values to the Terraform state, without changing any real infrastructure.
-
-─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-
-Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you
-run "terraform apply" now.
-
-C:\Users\Dell5371\Desktop\workspaces\tf_project\basic>terraform plan
-data.aws_vpc.default: Reading...
-data.aws_vpc.default: Read complete after 0s [id=vpc-0eebee125226fd6c5]
-data.aws_subnets.default: Reading...
-data.aws_subnets.default: Read complete after 0s [id=ap-northeast-2]
-
-Changes to Outputs:
-  + default_subnet_ids = [
-      + "subnet-049c8f72bb109a11e",
-      + "subnet-0cc79271aae2ac523",
-      + "subnet-0928223142a64ef05",
-      + "subnet-011432f9b62dee9b6",
-    ]
-  + default_vpc_id     = "vpc-0eebee125226fd6c5"
-
-You can apply this plan to save these new output values to the Terraform state, without changing any real infrastructure.
-
-─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-
-Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you
-run "terraform apply" now.
-
-C:\Users\Dell5371\Desktop\workspaces\tf_project\basic>terraform validate
-Success! The configuration is valid.
-
-
-C:\Users\Dell5371\Desktop\workspaces\tf_project\basic>terraform plan    
-data.aws_vpc.default: Reading...
-data.aws_vpc.default: Read complete after 0s [id=vpc-0eebee125226fd6c5]
-data.aws_subnets.default: Reading...
-data.aws_subnets.default: Read complete after 0s [id=ap-northeast-2]
+data.aws_ami.amazon_linux: Read complete after 1s [id=ami-05d406896d0284d57]
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the
 following symbols:
   + create
 
 Terraform will perform the following actions:
+
+  # aws_instance.ai-cp2-08-ec2 will be created
+  + resource "aws_instance" "ai-cp2-08-ec2" {
+      + ami                                  = "ami-05d406896d0284d57"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = (known after apply)
+      + availability_zone                    = (known after apply)
+      + disable_api_stop                     = (known after apply)
+      + disable_api_termination              = (known after apply)
+      + ebs_optimized                        = (known after apply)
+      + enable_primary_ipv6                  = (known after apply)
+      + force_destroy                        = false
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + host_resource_group_arn              = (known after apply)
+      + iam_instance_profile                 = (known after apply)
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = (known after apply)
+      + instance_lifecycle                   = (known after apply)
+      + instance_state                       = (known after apply)
+      + instance_type                        = "t3.micro"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = "ai-cp2-08-key"
+      + monitoring                           = (known after apply)
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_group_id                   = (known after apply)
+      + placement_partition_number           = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = (known after apply)
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + region                               = "ap-northeast-2"
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = (known after apply)
+      + source_dest_check                    = true
+      + spot_instance_request_id             = (known after apply)
+      + subnet_id                            = "subnet-049c8f72bb109a11e"
+      + tags                                 = {
+          + "Name" = "ai-cp2-08-ec2"
+        }
+      + tags_all                             = {
+          + "Name" = "ai-cp2-08-ec2"
+        }
+      + tenancy                              = (known after apply)
+      + user_data_base64                     = (known after apply)
+      + user_data_replace_on_change          = false
+      + vpc_security_group_ids               = (known after apply)
+
+      + capacity_reservation_specification (known after apply)
+
+      + cpu_options (known after apply)
+
+      + ebs_block_device (known after apply)
+
+      + enclave_options (known after apply)
+
+      + ephemeral_block_device (known after apply)
+
+      + instance_market_options (known after apply)
+
+      + maintenance_options (known after apply)
+
+      + metadata_options (known after apply)
+
+      + network_interface (known after apply)
+
+      + primary_network_interface (known after apply)
+
+      + private_dns_name_options (known after apply)
+
+      + root_block_device (known after apply)
+
+      + secondary_network_interface (known after apply)
+    }
 
   # aws_security_group.ai-cp2-08-sg will be created
   + resource "aws_security_group" "ai-cp2-08-sg" {
@@ -189,21 +189,17 @@ Terraform will perform the following actions:
       + vpc_id                 = "vpc-0eebee125226fd6c5"
     }
 
-Plan: 1 to add, 0 to change, 0 to destroy.   <-- 핵심
+Plan: 2 to add, 0 to change, 0 to destroy.
 
 Changes to Outputs:
-  + default_subnet_ids = [
+  + aws_ami_amazon_linux_id = "ami-05d406896d0284d57"
+  + default_subnet_ids      = [
       + "subnet-049c8f72bb109a11e",
       + "subnet-0cc79271aae2ac523",
       + "subnet-0928223142a64ef05",
       + "subnet-011432f9b62dee9b6",
     ]
-  + default_vpc_id     = "vpc-0eebee125226fd6c5"
-
-─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-
-Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you
-run "terraform apply" now.
+  + default_vpc_id          = "vpc-0eebee125226fd6c5"
 
 ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
