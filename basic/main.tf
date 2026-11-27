@@ -61,14 +61,21 @@ resource "aws_security_group" "ai-cp2-08-sg" {
         # 포트
         from_port = 80
         to_port = 80
-        cidr_blocks = [ "0.0.0.0/0" ] # 전 세계로 개방
-        # 전 세계에서 웹으로 접속 OK
+        cidr_blocks = [ "0.0.0.0/0" ] # 전세계로 개방
+        # 전세계에서 웹으로 접속 OK
         description = "HTTP"
     }
 
     # 아웃바운드 ###########################
+    # 내부 트레픽이 외부로 나가는 규칙
     egress {
-
+        # 모든 프로토콜 개방
+        protocol = "-1"
+        # 모든 포트 개방
+        from_port = 0
+        to_port = 0
+        # IP 전세계로 개방
+        cidr_blocks = [ "0.0.0.0/0" ]
     }
 }
 
