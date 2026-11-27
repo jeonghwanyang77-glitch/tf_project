@@ -39,6 +39,28 @@ terraform validate
 - step3 : 실행 계획 확인 (플래닝, 시뮬레이션)
 ```
 terraform plan
+----
+# 실제 구성할 인프라에 대한 시뮬레이션 => +, -, +/- 기호 주목
+data.aws_vpc.default: Reading...
+data.aws_vpc.default: Read complete after 0s [id=vpc-0eebee125226fd6c5]
+data.aws_subnets.default: Reading...
+data.aws_subnets.default: Read complete after 0s [id=ap-northeast-2]
+
+Changes to Outputs:
+  + default_subnet_ids = [
+      + "subnet-049c8f72bb109a11e",
+      + "subnet-0cc79271aae2ac523",
+      + "subnet-0928223142a64ef05",
+      + "subnet-011432f9b62dee9b6",
+    ]
+  + default_vpc_id     = "vpc-0eebee125226fd6c5"
+
+You can apply this plan to save these new output values to the Terraform state, without changing any real infrastructure.
+
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you
+run "terraform apply" now.
 ```
 - step4 : 테라폼 적용 (실제 생성)
 ```
