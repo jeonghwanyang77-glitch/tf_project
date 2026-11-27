@@ -23,9 +23,14 @@ L .gitignore
 ```
 cd basic
 ```
+
 - step1 : 테라폼 초기화
 ```
 terraform init
+---
+결과물 체크
+- .terraform/~ : 공급자 플러그인, 바이러니, 모듈, 정보 등 생성
+- .terraform.lock.hcl : 프로바이더 모듈의 지정한 버전, 해시 값 잠금 관리 -> 안정적 관리, 자동생성 시 체킹 용도 활용
 ```
 - step2 : 문법 검사 (체킹)
 ```
